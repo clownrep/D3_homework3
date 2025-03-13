@@ -102,6 +102,32 @@ d3.csv("socialMediaAvg.csv").then(data => {
 
     // Add title
     svg.append("text").attr("x", width / 2).attr("y", 20).attr("text-anchor", "middle").text("Average Likes by Platform & Post Type");
+
+    // Legend
+    const legend = svg.append("g")
+                      .attr("transform", `translate((0, -30)`);
+
+    const legendKeys = [...new Set(data.map(d => d.PostType))];
+
+    legend.selectAll("rect")
+          .data(legendKeys)
+          .enter()
+          .append("rect")
+          .attr("x", 0)
+          .attr("y", (d, i) => i * 20)
+          .attr("width", 15)
+          .attr("height", 15)
+          .attr("fill", d => color(d));
+
+    legend.selectAll("text")
+          .data(legendKeys)
+          .enter()
+          .append("text")
+          .attr("x", 20)
+          .attr("y", (d, i) => i * 20 + 12)
+          .text(d => d)
+          .style("font-size", "12px")
+          .attr("alignment-baseline", "middle"); 
 });
 
 // Line plot section
