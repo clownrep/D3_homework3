@@ -104,8 +104,7 @@ d3.csv("socialMediaAvg.csv").then(data => {
     svg.append("text").attr("x", width / 2).attr("y", 20).attr("text-anchor", "middle").text("Average Likes by Platform & Post Type");
 
     // Legend
-    const legend = svg.append("g")
-                      .attr("transform", `translate((0, -30)`);
+    const legend = svg.append("g").attr("transform", `translate((0, -30)`);
 
     const legendKeys = [...new Set(data.map(d => d.PostType))];
 
