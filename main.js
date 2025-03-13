@@ -17,7 +17,7 @@ const boxplotSVG = d3.select("body")
                      .attr("transform", `translate(${margin.left},${margin.top})`);
 
 // Load Box Plot Data
-d3.csv("C:\Users\holli\OneDrive\Desktop\D3_homework3\socialMedia.csv").then(data => {
+d3.csv("socialMedia.csv").then(data => {
     data.forEach(d => d.Likes = +d.Likes);
     
     // Define scales
@@ -52,7 +52,7 @@ const barplotSVG = d3.select("body")
                      .attr("transform", `translate(${margin.left},${margin.top})`);
 
 // Load Bar Plot Data
-d3.csv("C:\Users\holli\OneDrive\Desktop\D3_homework3\socialMediaAvg.csv").then(data => {
+d3.csv("socialMediaAvg.csv").then(data => {
     data.forEach(d => d.AvgLikes = +d.AvgLikes);
 
     const x0 = d3.scaleBand()
@@ -105,7 +105,7 @@ const lineplotSVG = d3.select("body")
                       .attr("transform", `translate(${margin.left},${margin.top})`);
 
 // Load Line Plot Data
-d3.csv("C:\Users\holli\OneDrive\Desktop\D3_homework3\socialMediaTime.csv").then(data => {
+d3.csv("socialMediaTime.csv").then(data => {
     data.forEach(d => d.AvgLikes = +d.AvgLikes);
 
     const xScale = d3.scaleBand()
